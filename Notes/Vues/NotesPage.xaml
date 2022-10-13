@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notes.Vues.NotesPage"
+             Title="Note">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="4">
+        <Label Grid.Row="0" Text="NEW NOTE" FontSize="40" FontAttributes="Bold"/>
+        <Editor Grid.Row="1" Placeholder="Note Title"/>
+        <Grid Grid.Row="2" ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="3">
+            <Button Grid.Column="0" Text="B" FontSize="10" FontAttributes="Bold"/>
+            <Button Grid.Column="1" Text="I" FontSize="10" FontAttributes="Italic"/>
+            <Button Grid.Column="2" Text="U" FontSize="10" FontAttributes="None"/>
+        </Grid>
+        <VerticalStackLayout Grid.Row="3" Spacing="50" Margin="5">
+            <Editor x:Name="TextEditor"
+                Placeholder="Enter your note"
+                Text="{Binding Text}"
+                HeightRequest="100" />
+            <Grid ColumnDefinitions="* , *" ColumnSpacing="4">
+                <Button Text="Save"
+                    Clicked="SaveButton_Clicked" />
+                <Button Grid.Column="1"
+                    Text="Cancel"
+                    Clicked="DeleteButton_Clicked" />
+            </Grid>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
